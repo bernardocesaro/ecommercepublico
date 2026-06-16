@@ -1,4 +1,6 @@
-import { buscarUsuario, criarUsuarioTeste() } from './db.js';
+import { buscarUsuario, criarUsuarioTeste } from './db.js';
+
+criarUsuarioTeste();
 
 const DOM = {
     formLogin: document.getElementById('form-login'),
@@ -26,9 +28,7 @@ DOM.formLogin.addEventListener('submit', async (event) => {
     } else {
         DOM.divAlerta.classList.remove('hidden');
     }
-
-    DOM.inputEmail.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
-    DOM.inputSenha.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
 });
 
-async criarUsuarioTeste()
+DOM.inputEmail.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
+DOM.inputSenha.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
