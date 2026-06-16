@@ -1,4 +1,4 @@
-import { buscarUsuario } from './db.js';
+import { buscarUsuario, criarUsuarioTeste() } from './db.js';
 
 const DOM = {
     formLogin: document.getElementById('form-login'),
@@ -6,7 +6,6 @@ const DOM = {
     inputSenha: document.getElementById('password'),
     divAlerta: document.getElementById('alerta-erro'),
 }
-
 
 DOM.formLogin.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -31,3 +30,5 @@ DOM.formLogin.addEventListener('submit', async (event) => {
     DOM.inputEmail.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
     DOM.inputSenha.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
 });
+
+async criarUsuarioTeste()
