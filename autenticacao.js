@@ -7,7 +7,7 @@ export function protegerRotaAdmin() {
     const usuario = getUsuarioLogado();
 
     if (!usuario || usuario.role !== 'admin') {
-        window.location.href = 'index.html';
+        window.location.href = 'login.html';
     }
 
     return usuario;
