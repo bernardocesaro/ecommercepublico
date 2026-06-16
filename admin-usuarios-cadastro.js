@@ -47,6 +47,9 @@ async function inicializar() {
         DOM.inputRole.value  = usuario.role;
         DOM.inputEmail.value = usuario.email;
         DOM.inputSenha.value = usuario.senha;
+
+        DOM.inputEmail.disabled = true;
+        DOM.inputEmail.classList.add('opacity-50', 'cursor-not-allowed');
     }
 }
 
@@ -69,7 +72,8 @@ function ConfigurarEventosFormUsuario() {
                     usuario._rev = DOM.inputRev.value;
                     await db.put(usuario);
                 } else {
-                    await db.post(usuario);
+                    usuario._id = usuario.email;
+                    await db.put(usuario);
                 }
                 DOM.divAlerta.classList.remove('hidden');
             } catch (erro) {
