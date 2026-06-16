@@ -89,6 +89,12 @@ function ConfigurarEventosFormProduto() {
                 window.location.href = 'admin-produtos-consulta.html';
             });
         }
+
+        DOM.inputNome.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
+        DOM.inputCategoria.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
+        DOM.inputPreco.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
+        DOM.inputImagem.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
+        DOM.inputDescricao.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
     }
 }
 
@@ -139,9 +145,3 @@ export async function criarProdutosMock() {
 configurarHeaderSessao();
 ConfigurarEventosFormProduto();
 inicializar();
-
-DOM.inputNome.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
-DOM.inputCategoria.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
-DOM.inputPreco.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
-DOM.inputImagem.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
-DOM.inputDescricao.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
