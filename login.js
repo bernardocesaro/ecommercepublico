@@ -1,4 +1,4 @@
-import { buscarUsuario } from 'db.js';
+import { buscarUsuario } from './db.js';
 
 const DOM = {
     formLogin: document.getElementById('form-login'),
