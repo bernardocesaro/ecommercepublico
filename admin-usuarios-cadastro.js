@@ -1,5 +1,5 @@
-import { db } from 'db.js';
-import { protegerRotaAdmin, configurarHeaderSessao } from 'autenticacao.js';
+import { db } from './db.js';
+import { protegerRotaAdmin, configurarHeaderSessao } from './autenticacao.js';
 
 protegerRotaAdmin();
 
