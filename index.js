@@ -1,6 +1,5 @@
-import { db } from './db.js';
+import { db, criarProdutosMock } from './db.js';
 import { configurarHeaderSessao } from './autenticacao.js';
-import { criarProdutosMock } from './admin-produtos-cadastro.js';
 
 const enumCategorias = {
     Todas: 'Todas',
