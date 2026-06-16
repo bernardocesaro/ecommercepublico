@@ -77,25 +77,19 @@ function ConfigurarEventosFormUsuario() {
             }
         });
 
-        if (DOM.btnSalvar) {
-            DOM.btnSalvar.addEventListener('click', () => {
-                
-            });
-        }
-
         if (DOM.btnCancelar) {
             DOM.btnCancelar.addEventListener('click', () => {
                 window.location.href = 'admin-usuarios-consulta.html';
             });
         }
+
+        DOM.inputNome.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
+        DOM.inputRole.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
+        DOM.inputEmail.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
+        DOM.inputSenha.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
     }
 }
 
 configurarHeaderSessao();
 ConfigurarEventosFormUsuario();
 inicializar();
-
-DOM.inputNome.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
-DOM.inputRole.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
-DOM.inputEmail.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
-DOM.inputSenha.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
