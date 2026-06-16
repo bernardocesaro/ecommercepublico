@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Bernardo Sonza De Cesaro">
+        <meta name="keywords" content="Senai, SENAI, Projeto, Projeto Final, Ecommerce">
+
+        <title>Admin - Produtos</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet"/>
+    </head>
+
+    <body class="min-h-screen w-full flex flex-col bg-gradient-to-r from-cyan-500 to-blue-500 font-helvetic text-black dark:text-white" data-componente="corpo-admin-produtos">
+
+        <header data-componente="header-principal" class="w-full z-40">
+            <nav data-elemento="nav-superior" class="bg-white px-4 lg:px-6 py-2.5 dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+                <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-3xl">
+
+                    <a href="index.html" data-elemento="link-logo" class="flex items-center">
+                        <img src="logo-preta-100p51.png" class="mr-3 h-9 block dark:hidden" alt="Logo Loja"/>
+                        <img src="logo-branca-100p52.png" class="mr-3 h-9 hidden dark:block" alt="Logo Loja"/>
+                        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white hidden sm:block">
+                            Loja
+                        </span>
+                    </a>
+
+                    <div data-elemento="bloco-usuario" class="flex items-center lg:order-2">
+                        <a href="login.html" data-elemento="botao-login" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 transition-colors">
+                            Fazer Login
+                        </a>
+                        <button type="button"
+                                id="user-menu-button"
+                                data-elemento="botao-avatar"
+                                data-dropdown-toggle="dropdown-usuario"
+                                aria-expanded="false"
+                                class="hidden flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">
+                            <span class="sr-only">
+                                Abrir Menu Usuário
+                            </span>
+                            <img class="w-8 h-8 rounded-full object-cover" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Foto do usuário">
+                        </button>
+                    </div>
+
+                    <div id="dropdown-usuario" data-componente="dropdown-usuario" class="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                        <div class="py-3 px-4">
+                            <span class="block text-sm font-semibold text-gray-900 dark:text-white" data-elemento="nome-usuario-logado">
+                                Usuário
+                            </span>
+                            <span class="block text-sm text-gray-500 truncate dark:text-gray-400" data-elemento="email-usuario-logado">
+                                usuario@email.com
+                            </span>
+                        </div>
+                        <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="user-menu-button">
+                            <li>
+                                <a href="#" data-elemento="link-perfil" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    Meu Perfil
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" data-elemento="link-configuracoes" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    Configurações da Conta
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="py-1 text-gray-500 dark:text-gray-400">
+                            <li>
+                                <a href="#" data-elemento="link-favoritos" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    Favoritos
+                                </a>
+                            </li>
+                        </ul>
+                        <ul id="lista-links-admin" class="hidden py-1 text-gray-500 dark:text-gray-400">
+                            <li>
+                                <a href="admin-produtos-consulta.html" data-elemento="link-admin-produtos" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    Gerenciar Produtos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="admin-usuarios-consulta.html" data-elemento="link-admin-usuarios" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    Gerenciar Usuários
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="py-1 text-gray-500 dark:text-gray-400">
+                            <li>
+                                <a href="index.html" data-elemento="link-sair" class="block py-2 px-4 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-gray-600 dark:text-red-400 dark:hover:text-white">
+                                    Sair da conta
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+
+        <nav data-componente="nav-admin" class="bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 lg:px-6 py-3">
+            <div class="max-w-screen-3xl mx-auto flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center gap-4">
+                    <span class="font-bold text-lg text-gray-900 dark:text-white">
+                        Painel Admin
+                    </span>
+                    
+                    <a href="admin-produtos-consulta.html" data-elemento="link-admin-produtos" class="font-medium text-blue-600 dark:text-blue-400">
+                        Produtos
+                    </a>
+                    
+                    <a href="admin-usuarios-consulta.html" data-elemento="link-admin-usuarios" class="font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600">
+                        Usuários
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <main data-componente="conteudo-principal" class="flex-1 p-6 lg:p-10 max-w-screen-xl mx-auto w-full">
+            <section data-componente="bloco-lista" class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold text-gray-900 dark:text-white">
+                        Consulta de Produtos
+                    </h2>
+
+                    <a href="admin-produtos-cadastro.html"
+                    data-elemento="botao-novo-produto"
+                    class="inline-flex items-center gap-1.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 rounded-lg px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-colors">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5v14"/>
+                        </svg>
+                        Novo Produto
+                    </a>
+                </div>
+
+                <div id="tabela-produtos"
+                    data-elemento="container-tabela-produtos"
+                    class="relative overflow-x-auto shadow-sm rounded-lg border border-gray-200 dark:border-gray-700">
+                    <table class="w-full text-sm text-left text-gray-700 dark:text-gray-300">
+                        <thead class="text-sm text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 border-b border-gray-300 dark:border-gray-600">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 font-medium">
+                                    Nome do Produto
+                                </th>
+                                <th scope="col" class="px-6 py-3 font-medium">
+                                    <div class="flex items-center">
+                                        Categoria
+                                        <a href="#" data-elemento="ordenar-categoria">
+                                            <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th scope="col" class="px-6 py-3 font-medium">
+                                    <div class="flex items-center">
+                                        Preço (R$)
+                                        <a href="#" data-elemento="ordenar-preco">
+                                            <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th scope="col" class="px-6 py-3 font-medium text-right">
+                                    <span class="sr-only">
+                                        Ações
+                                    </span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-produtos-tbody" data-elemento="corpo-tabela-produtos">
+
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/pouchdb@9.0.0/dist/pouchdb.min.js"></script>
+        <script type="module" src="admin-produtos-consulta.js"></script>
+    </body>
+</html>
