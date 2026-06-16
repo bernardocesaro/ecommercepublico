@@ -27,7 +27,7 @@ DOM.formLogin.addEventListener('submit', async (event) => {
     } else {
         DOM.divAlerta.classList.remove('hidden');
     }
-});
 
-DOM.inputEmail.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
-DOM.inputSenha.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
+    DOM.inputEmail.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
+    DOM.inputSenha.addEventListener('input', () => DOM.divAlerta.classList.add('hidden'));
+});
