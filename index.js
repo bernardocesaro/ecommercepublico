@@ -85,7 +85,7 @@ async function carregarDadosIniciais() {
 
         if (todosProdutos.length === 0) {
             console.log("Criando produtos padrões...");
-            criarProdutosMock();
+            await criarProdutosMock();
             return carregarDadosIniciais(); 
         }
         estadoApp.produtos = todosProdutos;
