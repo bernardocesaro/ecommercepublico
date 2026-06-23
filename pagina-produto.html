@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Bernardo Sonza De Cesaro">
+        <meta name="keywords" content="Senai, SENAI, Projeto, Projeto Final, Ecommerce">
+
+        <title>Admin - Usuários</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet"/>
+    </head>
+
+    <body class="min-h-screen w-full flex flex-col bg-gradient-to-r from-cyan-500 to-blue-500 font-helvetic text-black dark:text-white" data-componente="corpo-admin-usuarios">
+
+        <header data-componente="header-principal" class="w-full z-40">
+            <nav data-elemento="nav-superior" class="bg-white px-4 lg:px-6 py-2.5 dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+                <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-3xl">
+
+                    <a href="index.html" data-elemento="link-logo" class="flex items-center">
+                        <img src="logo-preta-100p51.png" class="mr-3 h-9 block dark:hidden" alt="Logo Loja"/>
+                        <img src="logo-branca-100p52.png" class="mr-3 h-9 hidden dark:block" alt="Logo Loja"/>
+                        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white hidden sm:block">
+                            Loja
+                        </span>
+                    </a>
+
+                    <div data-elemento="bloco-usuario" class="flex items-center lg:order-2">
+                        <a href="login.html" data-elemento="botao-login" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 transition-colors">
+                            Fazer Login
+                        </a>
+                        <button type="button"
+                                id="user-menu-button"
+                                data-elemento="botao-avatar"
+                                data-dropdown-toggle="dropdown-usuario"
+                                aria-expanded="false"
+                                class="hidden flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">
+                            <span class="sr-only">
+                                Abrir Menu Usuário
+                            </span>
+                            <img class="w-8 h-8 rounded-full object-cover" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Foto do usuário">
+                        </button>
+                    </div>
+
+                    <div id="dropdown-usuario" data-componente="dropdown-usuario" class="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                        <div class="py-3 px-4">
+                            <span class="block text-sm font-semibold text-gray-900 dark:text-white" data-elemento="nome-usuario-logado">
+                                Usuário
+                            </span>
+                            <span class="block text-sm text-gray-500 truncate dark:text-gray-400" data-elemento="email-usuario-logado">
+                                usuario@email.com
+                            </span>
+                        </div>
+                        <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="user-menu-button">
+                            <li>
+                                <a href="#" data-elemento="link-perfil" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    Meu Perfil
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" data-elemento="link-configuracoes" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    Configurações da Conta
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="py-1 text-gray-500 dark:text-gray-400">
+                            <li>
+                                <a href="#" data-elemento="link-favoritos" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    Favoritos
+                                </a>
+                            </li>
+                        </ul>
+                        <ul id="lista-links-admin" class="hidden py-1 text-gray-500 dark:text-gray-400">
+                            <li>
+                                <a href="admin-produtos-consulta.html" data-elemento="link-admin-produtos" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    Gerenciar Produtos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="admin-usuarios-consulta.html" data-elemento="link-admin-usuarios" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    Gerenciar Usuários
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="py-1 text-gray-500 dark:text-gray-400">
+                            <li>
+                                <a href="index.html" data-elemento="link-sair" class="block py-2 px-4 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-gray-600 dark:text-red-400 dark:hover:text-white">
+                                    Sair da conta
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+
+        <main data-componente="conteudo-principal" class="flex-1 p-6 lg:p-10 max-w-screen-3xl mx-auto w-full">
+            <section class="py-8 bg-white md:py-16 dark:bg-gray-900 antialiased rounded-lg">
+                <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
+                    <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
+                        <div class="shrink-0 max-w-md lg:max-w-lg mx-auto">
+                            <img id="produto-imagem" class="w-full" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg" alt=""/>
+                        </div>
+                
+                        <div class="mt-6 sm:mt-8 lg:mt-0">
+                            <h1 id="produto-nome" class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">
+                                Nome Produto
+                            </h1>
+                            <div class="mt-4 sm:items-center sm:gap-4 sm:flex">
+                                <p id="produto-preco" class="text-2xl font-extrabold text-gray-900 sm:text-3xl dark:text-white">
+                                    Preço Produto
+                                </p>
+                    
+                                <div class="flex items-center gap-2 mt-2 sm:mt-0">
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-4 h-4 text-yellow-300"
+                                             aria-hidden="true"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             width="24"
+                                             height="24"
+                                             fill="currentColor"
+                                             viewBox="0 0 24 24">
+                                            <path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/>
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-300"
+                                             aria-hidden="true"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             width="24"
+                                             height="24"
+                                             fill="currentColor"
+                                             viewBox="0 0 24 24">
+                                            <path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/>
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-300"
+                                             aria-hidden="true"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             width="24"
+                                             height="24"
+                                             fill="currentColor"
+                                             viewBox="0 0 24 24">
+                                            <path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/>
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-300"
+                                             aria-hidden="true"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             width="24"
+                                             height="24"
+                                             fill="currentColor"
+                                             viewBox="0 0 24 24">
+                                            <path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/>
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-300"
+                                             aria-hidden="true"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             width="24"
+                                             height="24"
+                                             fill="currentColor"
+                                             viewBox="0 0 24 24">
+                                            <path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/>
+                                        </svg>
+                                    </div>
+
+                                    <p class="text-sm font-medium leading-none text-gray-500 dark:text-gray-400">
+                                        (5.0)
+                                    </p>
+
+                                    <a href="#"
+                                       class="text-sm font-medium leading-none text-gray-900 underline hover:no-underline dark:text-white">
+                                        345 Reviews
+                                    </a>
+
+                                </div>
+                            </div>
+                    
+                            <div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
+                                <a href="#"
+                                   title=""
+                                   class="flex items-center justify-center py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                                   role="button">
+                                    <svg class="w-5 h-5 -ms-2 me-2"
+                                         aria-hidden="true"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         width="24"
+                                         height="24"
+                                         fill="none"
+                                         viewBox="0 0 24 24">
+                                        <path stroke="currentColor"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"
+                                              stroke-width="2"
+                                              d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
+                                    </svg>
+                                    Adicionar aos Favoritos
+                                </a>
+                    
+                                <a href="#"
+                                   title=""
+                                   class="text-white mt-4 sm:mt-0 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 flex items-center justify-center"
+                                   role="button">
+                                    <svg class="w-5 h-5 -ms-2 me-2"
+                                         aria-hidden="true"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         width="24"
+                                         height="24"
+                                         fill="none"
+                                         viewBox="0 0 24 24">
+                                        <path stroke="currentColor"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"
+                                              stroke-width="2"
+                                              d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6"/>
+                                    </svg>
+                                    Adicionar ao Carrinho
+                                </a>
+                            </div>
+                    
+                            <hr class="my-6 md:my-8 border-gray-200 dark:border-gray-800" />
+                        
+                            <p id="produto-descricao" class="mb-6 text-gray-500 dark:text-gray-400">
+                                Descrição
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/pouchdb@9.0.0/dist/pouchdb.min.js"></script>
+        <script type="module" src="pagina-produto.js"></script>
+    </body>
+</html>

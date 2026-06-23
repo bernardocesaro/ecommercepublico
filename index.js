@@ -39,7 +39,7 @@ function renderizarProdutos(produtosParaExibir) {
     produtosParaExibir.forEach(produto => {
         const HTML = `
             <div class="w-full max-w-[192px] lg:max-w-[256px] bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between overflow-hidden">
-                <a href="#" class="p-4 block">
+                <a href="pagina-produto.html?id=${encodeURIComponent(produto._id)}" class="p-4 block">
                     <img class="rounded-t-lg mx-auto h-48 object-contain transition-transform duration-200 hover:scale-105" 
                          src="${produto.imagem}"
                          alt="${produto.nome}"
@@ -50,7 +50,7 @@ function renderizarProdutos(produtosParaExibir) {
                         <span class="text-xs font-medium uppercase px-2 py-1 rounded bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300">
                             ${produto.categoria}
                         </span>
-                        <a href="#" class="block mt-2">
+                        <a href="pagina-produto.html?id=${encodeURIComponent(produto._id)}" class="block mt-2">
                             <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white line-clamp-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                                 ${produto.nome}
                             </h5>

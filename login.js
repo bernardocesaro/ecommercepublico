@@ -19,9 +19,12 @@ DOM.formLogin.addEventListener('submit', async (event) => {
 
     if (usuario && usuario.senha === senha) {
         localStorage.setItem('usuarioLogado', JSON.stringify({
-            email: usuario.email,
+            _id: usuario.email,
+            tipo: usuario.tipo,
             nome: usuario.nome,
-            role: usuario.role
+            role: usuario.role,
+            email: usuario.email,
+            senha: usuario.senha            
         }));
 
         window.location.href = 'index.html';
